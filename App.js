@@ -8,6 +8,14 @@ export default class App extends React.Component {
     this.state = { text: '' };
   }
 
+  checkInput() {
+    if (this.state.text.toLowerCase() === "bus") {
+      alert("Yay, you got it!")
+    } else {
+      alert("Sorry, try again!")
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -15,6 +23,7 @@ export default class App extends React.Component {
         <TextInput
           style={{ width: 200, height: 50, borderColor: 'gray', borderWidth: 1, textAlign: 'center', fontSize: 30 }}
           onChangeText={(text) => this.setState({ text })}
+          onSubmitEditing={() => this.checkInput()}
           value={this.state.text}
         />
       </View>
